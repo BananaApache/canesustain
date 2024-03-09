@@ -4,6 +4,9 @@ from .forms import UserDataForm, UserBlogForm
 from .models import UserDataModel, UserBlogModel
 import uuid
 
+def return_to_home(request):
+    return redirect("/login/")
+
 def signup(request):
     if request.method == "POST":
         form = UserDataForm(request.POST)
