@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CaneSustain - LeaderBoard</title>
+    <style>
+        body {
+            background-color: #2b2b2b;
+            color: #ff8328;
+            display: flex;
+            margin: 0;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .post {
+            background-color: #404040;
+            margin: 10px;
+            margin-bottom: 50px;
+            max-width: 45%;
+            color: white;
+            box-shadow: 0 0 20px 8px #1a1a1a;
+            border-radius: 10px;
+            padding-top: 10px;
+            padding-bottom: 40px;
+        }
+
+        .post img {
+            max-width: 45%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .image-box {
+            background-color: #00000073;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            margin-left: 20px;
+        }
+
+        .link-box {
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+
+        a {
+            color: #76caff;
+            text-decoration: underline;
+            margin: 41px;
+            background-color: #1d1d1d;
+            padding: 16px;
+            border-radius: 10px;
+            border: 2px solid #005700;
+        }
+
+        table * {
+            border: 1px solid #ff8328;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>LeaderBoard</h1>
+    <div class="link-box">
+        <a href="/feed">Feed</a>
+    </div>
+    <table>
+        <tr>
+            <th>Rank</th>
+            <th>Username</th>
+            <th>Score</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.points }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>
