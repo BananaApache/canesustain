@@ -1,106 +1,40 @@
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fpython%2Fdjango&demo-title=Django%20%2B%20Vercel&demo-description=Use%20Django%204%20on%20Vercel%20with%20Serverless%20Functions%20using%20the%20Python%20Runtime.&demo-url=https%3A%2F%2Fdjango-template.vercel.app%2F&demo-image=https://assets.vercel.com/image/upload/v1669994241/random/django.png)
+    
 
-# Django + Vercel
+# About CaneSustain
 
-This example shows how to use Django 4 on Vercel with Serverless Functions using the [Python Runtime](https://vercel.com/docs/concepts/functions/serverless-functions/runtimes/python).
+## Inspiration
 
-## Demo
+My teammate and I's high school AP Environmental teacher was big on sustainability. Like really big.
+She would always be ranting and raving about CAFOS, heat islands, forever chemicals etc.
+Instead of sitting there, reading off a powerpoint and lecturing for 75 minutes, our teacher took it
+upon herself to make sure that we not only learned the material, but we also LIVED the material.
+We built vertical gardens, conducted research for NASA, and spoke to traveling keynote speakers from
+around the globe. This constant notion of sustainability was constantly lingering in the back of our 
+heads. With 
 
-https://django-template.vercel.app/
+## What it does
 
-## How it Works
+ It allows students to post pictures of themselves picking up trash, turning off classroom lights, or eating sustainably. Each post that the student uploads to the website can earn them one point. Students can rack up points and be able to redeem prizes such as merch or dining dollars. But the main goal is to help make the campus more sustainable in a fun and eenjoyable way. This website is for students not only at the University of Miami, but any University in general.
 
-Our Django application, `example` is configured as an installed application in `vercel_app/settings.py`:
+## How we built it
 
-```python
-# vercel_app/settings.py
-INSTALLED_APPS = [
-    # ...
-    'example',
-]
-```
+We built it using the Python framework, Django. We deployed it on Render.com because it is free and reliable. Also, we bought a domain from GoDaddy registry and made the render site redirect traffic to it.
 
-We allow "\*.vercel.app" subdomains in `ALLOWED_HOSTS`, in addition to 127.0.0.1:
+## Challenges we ran into
 
-```python
-# vercel_app/settings.py
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
-```
+Honestly, the hardest part was creating the structure chart for the website because we are both experienced in full-stack development. After we organized our workflow, building the website was fairly simple since "the design of the project is the hardest part, and coding is easy" as my professor Hien Ngyuen likes to say.
 
-The `wsgi` module must use a public variable named `app` to expose the WSGI application:
+## Accomplishments that we're proud of
 
-```python
-# vercel_app/wsgi.py
-app = get_wsgi_application()
-```
+ - Connecting the front-end to the back-end
+ - Creating a platform that incentivizes sustainable actions
+ - Overcoming the challenge of organizing our workflow
+ - Of course, the catchy name
 
-The corresponding `WSGI_APPLICATION` setting is configured to use the `app` variable from the `vercel_app.wsgi` module:
+## What we learned
 
-```python
-# vercel_app/settings.py
-WSGI_APPLICATION = 'vercel_app.wsgi.app'
-```
+We learned about the amazing intersection of technology and sustainability. By using our website, the campus can not only save money, but the world can be more clean.
 
-There is a single view which renders the current time in `example/views.py`:
+## What's next for CaneSustain
 
-```python
-# example/views.py
-from datetime import datetime
-
-from django.http import HttpResponse
-
-
-def index(request):
-    now = datetime.now()
-    html = f'''
-    <html>
-        <body>
-            <h1>Hello from Vercel!</h1>
-            <p>The current time is { now }.</p>
-        </body>
-    </html>
-    '''
-    return HttpResponse(html)
-```
-
-This view is exposed a URL through `example/urls.py`:
-
-```python
-# example/urls.py
-from django.urls import path
-
-from example.views import index
-
-
-urlpatterns = [
-    path('', index),
-]
-```
-
-Finally, it's made accessible to the Django server inside `vercel_app/urls.py`:
-
-```python
-# vercel_app/urls.py
-from django.urls import path, include
-
-urlpatterns = [
-    ...
-    path('', include('example.urls')),
-]
-```
-
-This example uses the Web Server Gateway Interface (WSGI) with Django to enable handling requests on Vercel with Serverless Functions.
-
-## Running Locally
-
-```bash
-python manage.py runserver
-```
-
-Your Django application is now available at `http://localhost:8000`.
-
-## One-Click Deploy
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fpython%2Fdjango&demo-title=Django%20%2B%20Vercel&demo-description=Use%20Django%204%20on%20Vercel%20with%20Serverless%20Functions%20using%20the%20Python%20Runtime.&demo-url=https%3A%2F%2Fdjango-template.vercel.app%2F&demo-image=https://assets.vercel.com/image/upload/v1669994241/random/django.png)
+We will focus on increasing user engagement, and also explore partnerships with university  departments, student orgs, and local businesses to enhance our incentivizes. We will also develop educational content and resources on sustainability topics in our website. If the campus sponsors us, we will then host campaigns, talks, and competitions. 

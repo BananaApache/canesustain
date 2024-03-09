@@ -65,7 +65,7 @@ def post(request):
                 
                 return redirect(f'/feed?identifier={identifier}')
                             
-        return render(request, "post.html", {'user': user, "form": form})
+        return render(request, "post.html", {'user': user[0], "form": form})
     else:
         return redirect('/login/')
 
