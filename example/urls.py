@@ -10,4 +10,5 @@ urlpatterns = [
     path('redeem/', views.redeem),
     path('leaderboard/', views.leaderboard),
     path('feed/', views.feed),
+    path('', views.return_to_home),
 ]
