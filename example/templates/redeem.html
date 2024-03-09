@@ -101,5 +101,15 @@
         document.getElementById('points').setAttribute('max', '{{user.points}}');
     </script>
 
+    <script>
+        document.querySelectorAll("a").forEach(a => {
+            // get search query
+            const url = new URL(window.location.href)
+            const user = url.searchParams.get("identifier")
+            
+            a.href += `?identifier=${user}`
+        })
+    </script>
+
 </body>
 </html>
